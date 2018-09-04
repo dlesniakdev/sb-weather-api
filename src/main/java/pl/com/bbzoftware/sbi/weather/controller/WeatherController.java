@@ -24,7 +24,7 @@ public class WeatherController extends AbstractBaseController {
   @Autowired
   private WeatherFacade weatherFacade;
 
-  @CrossOrigin(origins = "http://sb-weather-api.s3-website.eu-central-1.amazonaws.com")
+  @CrossOrigin(origins = "*")
   @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public SbForecasts getWeather(HttpServletRequest request) {
     WeatherParameterContext parameterContext = WeatherParameterContext.from(request);
