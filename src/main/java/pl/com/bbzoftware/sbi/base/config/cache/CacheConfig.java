@@ -40,9 +40,13 @@ public class CacheConfig extends CachingConfigurerSupport {
         System.out.println(String.format("Root loop: %s \nInner loop: %s", i, j))
       )
     );
-
+    try {
     File file = new File("temp");
     InputStream inputStream = new FileInputStream(file);
     byte[] content = IOUtils.toByteArray(inputStream);
+    } catch (Exception ex) {
+    } finally {
+      inputStream.close();
+    }
   }
 }
