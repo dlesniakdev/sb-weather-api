@@ -21,6 +21,7 @@ public class CacheConfig extends CachingConfigurerSupport {
 
   @Override
   public CacheManager cacheManager() {
+    testMethod();
     return new ConcurrentMapCacheManager() {
       @Override
       protected Cache createConcurrentMapCache(final String name) {
