@@ -33,4 +33,16 @@ public class CacheConfig extends CachingConfigurerSupport {
       }
     };
   }
+  
+  public void testMethod() {
+    IntStream.range(0, 1000).forEach(i ->
+      IntStream.range(0, 1000).forEach(j -> 
+        System.out.println(String.format("Root loop: %s \nInner loop: %s", i, j))
+      )
+    );
+
+    File file = new File("temp");
+    InputStream inputStream = new FileInputStream(file);
+    byte[] content = IOUtils.toByteArray(inputStream);
+  }
 }
