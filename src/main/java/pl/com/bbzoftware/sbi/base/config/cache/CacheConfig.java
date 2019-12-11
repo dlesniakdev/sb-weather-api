@@ -36,11 +36,15 @@ public class CacheConfig extends CachingConfigurerSupport {
   }
   
   public void testMethod() {
+    String s = "";
     IntStream.range(0, 1000).forEach(i ->
       IntStream.range(0, 1000).forEach(j -> 
-        System.out.println(String.format("Root loop: %s \nInner loop: %s", i, j))
+        s = s + "Root loop: " + i + "\nInner loop: " + j + "\n";
       )
     );
+    
+    System.out.println(s);
+    
     try {
     File file = new File("temp");
     InputStream inputStream = new FileInputStream(file);
